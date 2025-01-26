@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Pages</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            {% for item in content %}
+                <div class="item {{ item.type }}">
+                    {% if item.type == "text" %}
+                        <p>{{ item.value }}</p>
+                    {% elif item.type == "image" %}
+                        <img src="{{ item.value }}" alt="Image">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
